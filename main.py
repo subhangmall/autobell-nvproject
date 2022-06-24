@@ -3,6 +3,8 @@ import jetson.utils
 import os
 import argparse as arg
 
+#note: if you don't hear the bell sound: 1. ensure that your sound is working, 2. go into pulseaudio volume control, turn your volume up, go to playback, and turn all the sliders up
+
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5) #network used is ssd-mobilenet-v2
 #note: please change the next variable for your device
 cameraProtocolFSRepresentation = "v4l2:///dev/video0" #ex: v4l2:///dev/video1, v4l2:///dev/video0, csi://0 etc.. (Interface://FSRepresentation)
