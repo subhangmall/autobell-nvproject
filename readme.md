@@ -4,8 +4,7 @@ This is a system that can detect pedestrians and ring a bell (using speakers). T
 
 ## The Algorithm
 
-Add an explanation of the algorithm and how it works. Make sure to include details about how the code works, what it depends on, and any other relevant info. Add images or other descriptions for your project here. 
-This program uses a pretrained ssd-mobilenet-v2 and detectNet. The code works by asking the algorithm what it sees in the image, sorting through them using a loop, and if it detects a person/bike, adding one to the personNumberInFront[0] variable. The next part of this code plays the bell sound (using mpv), if the personNumberInFront[0] variable is greater than 0, and if the personNumberInFront[0] isn't equal to the last personNumberInFront[1 and 2]. The next part of this program sets personNumberInFront[2] to personNumberInFront[1] and personNumberInFront[1] to personNumberInFront[0]. Finally, it sets personNumberInFront[0] to 0, then repeats the program. 
+This program uses a pretrained ssd-mobilenet-v2 and detectNet. This program depends on mpv, jetson.inference, jetson.utils, and os (python library).  The code works by asking the algorithm what it sees in the image, sorting through them using a loop, and if it detects a person/bike, adding one to the personNumberInFront[0] variable. The next part of this code plays the bell sound (using mpv), if the personNumberInFront[0] variable is greater than 0, and if the personNumberInFront[0] isn't equal to the personNumberInFront[1 and 2]. The next part of this program sets personNumberInFront[2] to personNumberInFront[1] and personNumberInFront[1] to personNumberInFront[0]. Finally, it sets personNumberInFront[0] to 0, then repeats the program. 
 
 ## Running this project
 
