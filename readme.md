@@ -4,7 +4,7 @@ This is a system that can detect pedestrians and ring a bell (using speakers). T
 
 ## The Algorithm
 
-This program uses a pretrained ssd-mobilenet-v2 and detectNet. This program depends on mpv, jetson.inference, jetson.utils, and os (python library).  The code works by asking the algorithm what it sees in the image, sorting through them using a loop, and if it detects a person/bike, adding one to the personNumberInFront[0] variable. The next part of this code plays the bell sound (using mpv), if the personNumberInFront[0] variable is greater than 0, and if the personNumberInFront[0] isn't equal to the personNumberInFront[1 and 2]. The next part of this program sets personNumberInFront[2] to personNumberInFront[1] and personNumberInFront[1] to personNumberInFront[0]. Finally, it sets personNumberInFront[0] to 0, then repeats the program. 
+This program uses a pretrained ssd-mobilenet-v2 and detectNet. This program depends on mpv, jetson.inference, jetson.utils, and os (python library).  The code works by asking the algorithm what it sees in the image, sorting through them using a loop, and if it detects a person/bike, adding one to the personNumberInFront[0] variable. The next part of this code plays the bell sound (using mpv), if the personNumberInFront[0] variable is greater than 0, and if the personNumberInFront[0] isn't equal to the personNumberInFront[1 and 2]. The next part of this program sets personNumberInFront[2] to personNumberInFront[1] and personNumberInFront[1] to personNumberInFront[0]. Finally, it sets personNumberInFront[0] to 0, then repeats the program. SSD-mobilenet-v2 is a lightweight model, which is meant to be used on mobile devices. The SSD (single shot detector) uses mobilenet as a backbone. SSD divides the image into regions, and in each region detects the objects.
 
 ## Running this project
 
@@ -21,7 +21,6 @@ Running the program:
 2. cd into the autobell-nvproject directory
 3. run main.py by typing python3 main.py
 
-Troubleshooting:
 My audio doesn’t work:
 If your audio doesn’t work, while the bell is ringing, follow these steps. Firstly, ensure you have followed all of the previous instructions and installed all the packages. Secondly, try a different speaker and change the settings. If it still doesn’t work, go to the “start menu”, click on Sound & Video, and click on Pulseaudio Volume Control and to Playback. Start the program and ensure that a human is in the webcam frame so the bell will ring. While the bell is ringing, go back to the Pulseaudio window, and make sure the audio for MPV is turned up all the way.
 
