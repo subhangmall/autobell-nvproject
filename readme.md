@@ -8,7 +8,7 @@ This program uses a pretrained ssd-mobilenet-v2 and detectNet. This program depe
 
 ## Running this project
 
-Needed libraries: jetson.utils, jetson.inference, os, and argparse (os and argparse are included with python, you can install jetson.inference and jetson.utils by using this link https://github.com/dusty-nv/jetson-inference/blob/master/docs/building-repo-2.md)
+Needed libraries: jetson.utils, jetson.inference, os, and argparse (os and argparse are included with python, you can install jetson.inference and jetson.utils by using this link: https://github.com/dusty-nv/jetson-inference/blob/master/docs/building-repo-2.md
 Needed executables: mpv 
 Needed hardware: Monitor(for initial troubleshooting and running the program), speaker and soundcard (you can also just use the speaker of the monitor if it has one), jetson nano, keyboard, mouse, and ethernet cable/wifi usb stick
 
