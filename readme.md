@@ -11,12 +11,16 @@ This program uses a pretrained ssd-mobilenet-v2 and detectNet. This program depe
 Needed libraries: jetson.utils, jetson.inference, os, and argparse (os and argparse are included with python, you can install jetson.inference and jetson.utils by using this link https://github.com/dusty-nv/jetson-inference/blob/master/docs/building-repo-2.md)
 Needed executables: mpv 
 Needed hardware: Monitor(for initial troubleshooting and running the program), speaker and soundcard (you can also just use the speaker of the monitor if it has one), jetson nano, keyboard, mouse, and ethernet cable/wifi usb stick
+
 Setup:
+
 1. With your monitor attached, boot up into LXDE (default nano desktop environment), go into the “start menu”, click on Sound & Video, and click on Pulseaudio Volume Control
 2. Make sure it is set to the right speaker.
 3. Click on “Playback”
 4. Make sure the volume is turned up for the right outputs
+
 Running the program: 
+
 1. Clone this github repository (github.com/subhangmall/autobell-nvproject.git)
 2. cd into the autobell-nvproject directory
 3. run main.py by typing python3 main.py. If the camera you want to use isn't v4l2:///dev/video0, run python3 main.py --camera [your-camera]
