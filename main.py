@@ -8,12 +8,16 @@ import argparse as arg
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5) #network used is ssd-mobilenet-v2
 #note: please change the next variable for your device
 cameraProtocolFSRepresentation = "v4l2:///dev/video0" #ex: v4l2:///dev/video1, v4l2:///dev/video0, csi://0 etc.. (Interface://FSRepresentation)
+displayProtocolFSRepresentation = "display://0"
 camera = jetson.utils.videoSource(cameraProtocolFSRepresentation) #set the camera to the camera interface plus the camera filesystem representation
+display = jetson.utils.videoOutput(displayProtocolFSRepresentation)
+
 personNumberInFront = [0, 0, 0] #[currentamountofpeople, oldamountofpeople, reallyoldamountofpeople], for comparison purposes
 
 while True:
         img = camera.Capture()
         detections = net.Detect(img) #classify the image and the objects
+        display.Render(img)
         for detection in detections: #going thorough each detection
                 print(detection.ClassID, " ", net.GetClassDesc(detection.ClassID))
                 print(detection.Height, " ", detection.Width)
