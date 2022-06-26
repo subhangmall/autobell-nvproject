@@ -3,27 +3,22 @@ import jetson.utils
 import os
 import argparse
 
-parser = argparse.ArgumentParser
-parser.add_argument("--camera", help="Protocol://CameraPath; ex: v4l2:///dev/video0, csi://0", type=str, default="v4l2:///dev/video0")
-parser.add_argument("--display", help="Protocol://DisplayPath; ex display://0, v4l2://0.0.0.0. If you want headless, type headless", type=str, default="display://0")
+parser = argparse.ArgumentParser()
+parser.add_argument("--camera", help="Protocol://CameraPath; ex: v4l2:///dev/video0, csi://0", default="v4l2:///dev/video0")
 args = parser.parse_args()
 print(args.camera)
-print(args.display)
 #note: if you don't hear the bell sound: 1. ensure that your sound is working, 2. go into pulseaudio volume control, turn your volume up, go to playback, and turn all the sliders up
 
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5) #network used is ssd-mobilenet-v2
 #note: please change the next variable for your device
-cameraProtocolFSRepresentation = "v4l2:///dev/video0" #ex: v4l2:///dev/video1, v4l2:///dev/video0, csi://0 etc.. (Interface://FSRepresentation)
-displayProtocolFSRepresentation = "display://0"
+cameraProtocolFSRepresentation = args.camera #ex: v4l2:///dev/video1, v4l2:///dev/video0, csi://0 etc.. (Interface://FSRepresentation)
 camera = jetson.utils.videoSource(cameraProtocolFSRepresentation) #set the camera to the camera interface plus the camera filesystem representation
-display = jetson.utils.videoOutput(displayProtocolFSRepresentation)
 
 personNumberInFront = [0, 0, 0] #[currentamountofpeople, oldamountofpeople, reallyoldamountofpeople], for comparison purposes
 
 while True:
         img = camera.Capture()
         detections = net.Detect(img) #classify the image and the objects
-        display.Render(img)
         for detection in detections: #going thorough each detection
                 print(detection.ClassID, " ", net.GetClassDesc(detection.ClassID))
                 print(detection.Height, " ", detection.Width)
