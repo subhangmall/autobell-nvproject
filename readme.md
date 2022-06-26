@@ -30,4 +30,4 @@ My audio doesn’t work:
 If your audio doesn’t work, while the bell is ringing, follow these steps. Firstly, ensure you have followed all of the previous instructions and installed all the packages. Secondly, try a different speaker and change the settings. If it still doesn’t work, go to the “start menu”, click on Sound & Video, and click on Pulseaudio Volume Control and to Playback. Start the program and ensure that a human is in the webcam frame so the bell will ring. While the bell is ringing, go back to the Pulseaudio window, and make sure the audio for MPV is turned up all the way.
 
 
-[View a video explanation here](video link)
+[View a video explanation here](https://youtu.be/pBbwf0RTNUw)
