@@ -19,7 +19,7 @@ Setup:
 Running the program: 
 1. Clone this github repository (github.com/subhangmall/autobell-nvproject.git)
 2. cd into the autobell-nvproject directory
-3. run main.py by typing python3 main.py
+3. run main.py by typing python3 main.py. If the camera you want to use isn't v4l2:///dev/video0, run python3 main.py --camera [your-camera]
 
 My audio doesn’t work:
 If your audio doesn’t work, while the bell is ringing, follow these steps. Firstly, ensure you have followed all of the previous instructions and installed all the packages. Secondly, try a different speaker and change the settings. If it still doesn’t work, go to the “start menu”, click on Sound & Video, and click on Pulseaudio Volume Control and to Playback. Start the program and ensure that a human is in the webcam frame so the bell will ring. While the bell is ringing, go back to the Pulseaudio window, and make sure the audio for MPV is turned up all the way.
