@@ -1,8 +1,12 @@
 import jetson.inference
 import jetson.utils
 import os
-import argparse as arg
+import argparse
 
+parser = argparse.ArgumentParser
+parser.add_argument("--camera", help="Protocol://CameraPath; ex: v4l2:///dev/video0, csi://0")
+parser.add_argument("--display", help="Protocol://DisplayPath; ex display://0, v4l2://0.0.0.0")
+args = parser.parse_args()
 #note: if you don't hear the bell sound: 1. ensure that your sound is working, 2. go into pulseaudio volume control, turn your volume up, go to playback, and turn all the sliders up
 
 net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5) #network used is ssd-mobilenet-v2
