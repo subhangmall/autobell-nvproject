@@ -31,3 +31,4 @@ If your audio doesn’t work, while the bell is ringing, follow these steps. Fir
 
 
 [View a video explanation here](https://youtu.be/pBbwf0RTNUw)
+Video taken down
